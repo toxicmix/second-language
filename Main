@@ -1,0 +1,22 @@
+import random
+import secrets 
+from secrets import choice
+from random import seed
+from random import choice
+from random import randint
+from random import shuffle
+# seed random number generator
+seed(1)
+# prepare a sequence
+sequence = [i for i in range(6)]
+num =[]
+print(sequence)
+#make choices from the sequence
+for x in range(5):
+    selection = secrets.choice(sequence)
+    selection += 1
+    num.append(selection)
+    selection -= 1
+    sequence.remove(selection)
+print (num)
+
