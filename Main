@@ -7,16 +7,60 @@ from random import randint
 from random import shuffle
 # seed random number generator
 seed(1)
-# prepare a sequence
-sequence = [i for i in range(6)]
-num =[]
-print(sequence)
-#make choices from the sequence
-for x in range(5):
+
+print("RNG or string enter a number  1: RNG any other number for string ")
+x = input() # chose between RNG or string compare
+
+
+if(x == "1"):
+  # prepare a sequence of users choice 
+  put = int(input("enter how many characters: "))
+  
+  # makes sure input is positive
+  bool1 = True
+  if(put < 1):
+    bool1 = False
+    while bool1 == False:
+      print("invalid number try again")
+      put = int(input())
+      if(put > 0):
+        bool1 = True
+
+  # prepare a sequence of users choice 
+  sequence = [i for i in range(put)]
+  print(sequence)
+
+  num =[]
+
+  # take x number of values from the sequence
+  take = int(input("enter how many number you want to take: "))
+  bool2 = True
+  if(take > put):
+    bool2 = False
+    while bool2 == False:
+      print("invalid number try again")
+      take = int(input())
+      if(take < put):
+        bool2 = True
+
+  for x in range(take):
     selection = secrets.choice(sequence)
     selection += 1
     num.append(selection)
     selection -= 1
     sequence.remove(selection)
-print (num)
+  print (num)
 
+
+else:
+  s1 = input("enter srting 1: ")
+  s2 = input("enter srting 2: ")
+  if(s1 == s2):
+    print("strings are the same")
+  else:
+    print("strings are not the same")
+    print("string 1 length: " + str(len(s1)))
+    print("string 2 length: " + str(len(s2)))
+    for x in range(len(s1)):
+      if(ord(s1[x]) != ord(s2[x])):
+        print("different character at index: " + str(x))
